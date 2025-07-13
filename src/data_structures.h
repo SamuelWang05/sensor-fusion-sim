@@ -1,20 +1,24 @@
 /**
-* Contains the data structures used to hold the data "gathered" by the sensors
+* Contains the data structures used to hold the data "generated" by the sensors
+*
+* I feel like this entire file could benefit from some polymorphism... may decide to implement later
 */
 
 #pragma once
+
+#include <vector>
 
 /**
 * LiDAR uses lasers to scan an area to obtain information. Each point has a distance and angle
 * associated with it, and multiple of these points are put together to create the scan
 */
-struct liDarPoint {
+struct lidarPoint {
     double distance;
     double angle;
 };
 
-struct liDarScan {
-    liDarPoint points[50]; // 50 is arbritrary
+struct lidarScan {
+    std::vector<lidarPoint> points;
     double timestamp;
 };
 
@@ -36,12 +40,21 @@ struct cameraOutput {
 };
 
 /**
-* Object that is tracked after processing data outputs
+ * Object's actual position and velocity
+ */
+struct trueObj {
+    int id;
+    double truePosX, truePosY; // Position in meters, note: xy-plane is parallel to ground
+    double trueVelX, trueVelY; // Velocity in m/s
+};
+
+/**
+* Object that is tracked after processing data outputs - may be different from actual pos and vel
 */
 struct trackedObj {
     int id;
-    double posX, posY;
-    double velX, velY;
+    double posX, posY; // Position in meters, note: xy-plane is parallel to ground
+    double velX, velY; // Velocity in m/s
     double confidence;
-    double last_updated_timestamp;
+    double last_updated_timestamp; // Time in seconds
 };
