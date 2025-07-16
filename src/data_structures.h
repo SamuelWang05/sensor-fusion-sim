@@ -25,18 +25,10 @@ struct lidarScan {
 /**
 * Assuming radars pre-process detection of objects (i.e. output will be characteristics of object)
 */
-struct radarOutput {
-    double range;
+struct radarData {
+    double distance;
     double velocity;
     double angle;
-};
-
-/**
-* Camera output will provide a "bounding box"
-*/
-struct cameraOutput {
-    double x, y; // x, y coordinates of top-left corner of bounding box
-    double width, height; // Width and height of the box
 };
 
 /**

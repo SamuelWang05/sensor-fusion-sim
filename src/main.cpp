@@ -4,7 +4,7 @@
 #include <iostream>
 
 int main() {
-    double sensorNoise = 10;
+    double sensorNoise = 5; // % standard deviation in sensor error
     int numObj = 3;
     double timeStep = 1;
 
@@ -13,6 +13,7 @@ int main() {
     generator.genSensorData();
 
     lidarScan lidarScanOut = generator.getLidarOutput();
+    std::vector<radarData> radarOutput = generator.getRadarOutput();
 
     std::cout << ("Finished generating data point");
 
