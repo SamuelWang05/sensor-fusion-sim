@@ -1,5 +1,5 @@
-#include "data_structures.h"
-#include "sensor_data_gen.h"
+#include "../src/data_gen/data_structures.h"
+#include "../src/data_gen/sensor_data_gen.h"
 
 #include <iostream>
 

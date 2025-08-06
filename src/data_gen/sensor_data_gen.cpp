@@ -26,7 +26,7 @@ void SensorDataGen::genLidarData() {
     for (int i = 0; i < numObj; ++i) {
         lidarScanOutput.points.push_back(lidarPoint(
             sqrt(pow(objList[i].truePosX, 2) + pow(objList[i].truePosY, 2)) * normal(re), // Calculate distance using pythagorean theorem
-            atan2(objList[i].truePosY, objList[i].truePosX) * (180 / M_PI) * normal(re)         // Calculate angle using trig, convert to degrees
+            atan2(objList[i].truePosY, objList[i].truePosX) * (180 / M_PI) * normal(re)               // Calculate angle using trig, convert to degrees
             ));
     }
 

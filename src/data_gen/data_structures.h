@@ -1,7 +1,5 @@
 /**
 * Contains the data structures used to hold the data "generated" by the sensors
-*
-* I feel like this entire file could benefit from some polymorphism... may decide to implement later
 */
 
 #pragma once
